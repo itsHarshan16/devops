@@ -3,46 +3,17 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Checkout') {
+        stage('Python Diagnostic') {
             steps {
-                checkout scm
+                bat 'echo Checking Jenkins user'
+                bat 'whoami'
+
+                bat 'echo Checking Python location'
+                bat 'dir "C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"'
+
+                bat 'echo Checking Python version'
+                bat '"C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version'
             }
-        }
-
-        stage('Build') {
-            steps {
-              echo 'Checking Python application'
-                             bat '"C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile app.py'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Executing automated Tests'
-
-                bat 'python -m unittest app'
-            }
-        }
-
-        stage('Run Application') {
-            steps {
-              bat 'python app.py'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline executed successfully!'
-        }
-
-        failure {
-            echo 'Pipeline failed. Please check the errors.'
-        }
-
-        always {
-            echo 'Jenkins Pipeline execution completed.'
         }
     }
 }
