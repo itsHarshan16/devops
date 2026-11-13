@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
               echo 'Checking Python application'
-              bat 'python -m py_compile app.py'
+                             bat '"C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile app.py'
             }
         }
 
