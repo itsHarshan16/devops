@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Running Python Unit Tests'
 
-                bat '"C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m unittest
+                bat '"C:\\Users\\STUDENT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m unittest'
             }
         }
 
